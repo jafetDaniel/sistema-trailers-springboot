@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sd="http://www.thymeleaf.org/spring-data">
+<head th:replace="master :: head"></head>
+
+<body>
+<header th:replace="master :: header"></header>
+
+<div class="bg-dark p-5 rouded">
+	    <h1 class="display-1 text-primary" style="font-weight:bold; text-align: center;">Cinema Trailer</h1>
+</div>
+
+	<div class="container my-5">
+	
+	   <h1 th:text="${titulo}" class="text-light mt-5"></h1>
+	
+		<div class="text-end">
+			<a href="/admin/peliculas/nuevo" class="btn btn-primary mb-3">Agregar
+				película</a>
+		</div>
+		<table class="table table-hover table-dark">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Película</th>
+					<th>Estreno</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="movie : ${movies}" th:object="${movie}">
+					<td style="width: 150px;">
+					   <a th:href="@{/assets/{filename}(filename=*{routeImage})}" data-fancybox>
+					     <img th:src="@{/assets/{filename}(filename=*{routeImage})}" alt="" class="img-thumbnail w-100">
+					   </a>
+					</td>
+					<td>
+						<div th:text="*{title}" class="fs-5 fw-bold"></div>
+						<p th:text="*{synopsis}"></p>
+						<div>
+							<span class="badge rounded-pill bg-light text-dark me-1"
+								th:each="genre : *{genres}" th:text="${genre.title}"></span>
+						</div>
+					</td>
+					
+					<td th:text="*{#temporals.format(dateRelease, 'dd/MM/yyyy')}"></td>
+					
+					<td class="text-end">
+					   <a th:href="@{/admin/peliculas/{id}/editar(id=*{id})}">Editar</a>
+					   <a th:href="@{/admin/peliculas/{id}/eliminar(id=*{id})}" onclick="return confirm('esta seguro que desea eliminar');">Eliminar</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>	
+		<nav th:replace="paginator-nav :: paginator"></nav>
+	</div>
+
+<footer th:replace="master :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master :: head"></head>
+<body>
+	<header th:replace="master :: header"></header>
+
+	<div class="container my-5">
+		<h2 th:text="${titulo}"></h2>
+		<br>
+		<form action="" method="post" th:object="${movie}"
+			enctype="multipart/form-data">
+
+			<div class="mb-3">
+				<label for="title" class="form.label">Título:</label> 
+				<input type="text" id="title" class="form-control" th:field="*{title}" style="background-color:black; color:white;">
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+			</div>
+
+			<div class="mb-3">
+				<label for="synopsis" class="form-label">Sinopsis:</label>
+				<textarea id="synopsis" class="form-control" th:field="*{synopsis}" style="background-color:black; color:white;"></textarea>
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('synopsis')}" th:errors="*{synopsis}"></div>
+			</div>
+
+			<div class="mb-3">
+				<label for="dateRelease" class="form-label">Estreno:</label> 
+				<input type="date" id="dateRelease" placeholder="fecha de estreno" class="form-control" th:field="*{dateRelease}" style="width:150px">
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('dateRelease')}" th:errors="*{dateRelease}"></div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="urlTrailer" class="form-label">URL de trailer:</label> 
+				<input type="text" id="urlTrailer" class="form-control" th:field="*{urlTrailer}" style="background-color:black; color:white;">
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('urlTrailer')}" th:errors="*{urlTrailer}"></div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="image" class="form-label">Imagen de la película:</label> 
+				<input type="file" id="image" name="image" class="form-control" th:field="*{image}" style="background-color:black; color:white;">
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></div>
+			</div>
+			
+			<div class="mb-3">
+				<label for="genres" class="form-label">Género:</label> 
+				<select id="genres" class="form-control" th:field="*{genres}" multiple style="background-color:black; color:white;">
+					<option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.title}"></option>
+				</select>
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('genres')}" th:errors="*{genres}"></div>
+			</div>
+
+			<div class="text-end">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+		</form>
+	</div>
+
+<footer th:replace="master :: footer"></footer>
+</body>
+</html>

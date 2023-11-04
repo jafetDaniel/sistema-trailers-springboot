@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master :: head"></head>
+<body>
+	<header th:replace="master :: header"></header>
+
+	<div class="container my-5">
+		<h2 th:text="${titulo}"></h2>
+		<br>
+		<form action="" method="post" th:object="${genre}">
+
+			<div class="mb-3">
+				<label for="title" class="form.label">Nombre del género:</label> 
+				<input type="text" id="title" class="form-control" th:field="*{title}" style="background-color:black; color:white;">
+				<div class="invalid-feedback" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
+			</div>
+
+			<div class="text-end">
+				<button type="submit" class="btn btn-primary">Guardar</button>
+			</div>
+		</form>
+	</div>
+
+<footer th:replace="master :: footer"></footer>
+</body>
+</html>

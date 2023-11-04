@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="master :: head"></head>
+
+<body>
+<header th:replace="master :: header"></header>
+
+<div style="width: 100%; display:flex;">
+	 <img th:src="@{/img/portada.jpg}" style="width:50%; height:150px;">
+	 <img th:src="@{/img/portada.jpg}" style="width:50%; height:150px;">
+</div>
+
+<div class="p-5 rouded">
+	    <h1 class="display-1 text-primary" style="font-weight:bold; text-align: center;" >Cinema Trailer</h1>
+</div>
+
+<div class="container">
+
+	<h1 class="text-light mt-5">Últimos Estrenos</h1>
+	
+	<div class="row">
+	    <div class="col-md-3 my-5" th:each="movie : ${ultimasPeliculas}" th:object="${movie}">
+	       <a th:href="@{/peliculas/{id}(id=*{id})}" class="card shadow-lg" style="text-decoration:none;">
+	       <div style="height: 500px;">
+	       <img th:src="@{/assets/{filename}(filename=*{routeImage})}" th:alt="*{title}" 
+	            style="object-fit: cover; width:100%; height:100%;">
+	       </div>
+	       <div class="card-body">
+	          <h2 class="card-title fs-6" th:text="*{title}"></h2>
+	          <p th:text="*{#temporals.format(dateRelease,'dd/MM/yyyy')}" class="text-muted small"></p>
+	       </div>
+	       </a>
+	    </div>
+	</div>
+	
+</div>
+	
+<footer th:replace="master :: footer"></footer>
+</body>
+</html>
