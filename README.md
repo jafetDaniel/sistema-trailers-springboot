@@ -1,4 +1,4 @@
-# Cinema Traiers
+# Cinema Trailers
 
 Descripción:
 <p>
