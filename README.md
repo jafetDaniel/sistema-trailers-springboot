@@ -12,3 +12,10 @@ Tecnologías:
   Sistema realizado en el framework SpringBoot, JPA, Thymeleaf, CSS, Bootstrap, JavaScript Y Base de datos MySQL.
 </p>
 
+<img src="/src/main/resources/static/img/trailers1.png">
+<img src="/src/main/resources/static/img/trailers2.png">
+<img src="/src/main/resources/static/img/trailers3.png">
+<img src="/src/main/resources/static/img/trailers4.png">
+<img src="/src/main/resources/static/img/trailers5.png">
+<img src="/src/main/resources/static/img/trailers6.png">
+<img src="/src/main/resources/static/img/trailers7.png">
