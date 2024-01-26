@@ -1,9 +1,9 @@
-# Cinema Trailers
+# Cinema Trailer
 
 Descripción:
 <p>
-  Sistema web para consultar los últimos estrenos de películas y tambien se podra reproducir sus respectivos trailers. Las películas estan categorizadas por género, donde puede tener uno o varios, 
-  ademas de ver los detales de la película como duración, sinopsis, imagenes descriptivas, etc.
+  Sistema web para consultar los últimos estrenos de películas y también se podrá reproducir sus respectivos trailers. Las películas estan categorizadas por género, donde puede tener uno o varios, 
+  además de ver los detales de la película como duración, sinopsis, imagenes descriptivas, etc.
   Cuenta con un administrador que podra dar de alta, editar y eliminar películas y géneros.
 </p>
 
